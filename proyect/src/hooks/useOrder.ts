@@ -11,9 +11,10 @@ export default function useOrder() {
         const existingItem = order.find((orderItem) => orderItem.id === item.id);
 
         if (existingItem) {
-           console.log( existingItem );
+            const updateOrder = order.map(orederItem => orederItem.id === item.id ?
+                { ...orederItem, quantity: orederItem.quantity + 1 } : orederItem)
+            setOrder(updateOrder)
 
-           
 
         } else {
             const newItem = { ...item, quantity: 1 }
