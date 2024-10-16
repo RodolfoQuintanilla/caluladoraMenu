@@ -8,7 +8,7 @@ import useOrder from "./hooks/useOrder"
 
 function App() {
 
-  const { order, addItem } = useOrder()
+  const { order, addItem, removeItem } = useOrder()
 
   return (
     <>
@@ -35,6 +35,7 @@ function App() {
           <h2 >Consumo</h2>
           <OredeContents
             order={order}
+            removeItem={removeItem}
           />
         </div>
 
