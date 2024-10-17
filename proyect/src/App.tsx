@@ -10,7 +10,7 @@ import { TipPerecetageForm } from "./components/TipPerecetageForm";
 
 function App() {
 
-  const { order, addItem, removeItem } = useOrder()
+  const { order, addItem, removeItem, tip, setTip } = useOrder()
 
   return (
     <>
@@ -40,8 +40,9 @@ function App() {
             removeItem={removeItem}
           />
 
-          <TipPerecetageForm 
-          
+          <TipPerecetageForm
+            setTip={setTip}
+            tip={tip}
           />
 
           <OrderTotals

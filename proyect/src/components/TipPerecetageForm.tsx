@@ -16,7 +16,11 @@ const tipOptions = [
     },
 ]
 
-export const TipPerecetageForm = () => {
+type TipPerecetageFormProp = {
+    setTip: React.Dispatch<React.SetStateAction<number>>
+}
+
+export const TipPerecetageForm = ({ setTip }: TipPerecetageFormProp) => {
     return (
         <div>
             <h3 className="font-black text-2xl">Propina:</h3>
@@ -30,6 +34,7 @@ export const TipPerecetageForm = () => {
                             type="radio"
                             name="tip"
                             value={tip.value}
+                            onChange={e=> setTip(+e.target.value)}
                         />
                     </div>
                 ))}
