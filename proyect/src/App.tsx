@@ -2,6 +2,8 @@ import MenuItem from "./components/MenuItem"
 import { OredeContents } from "./components/OredeContents"
 import { menuItems } from "./data/db"
 import useOrder from "./hooks/useOrder"
+import OrderTotals from './components/OrderTotals';
+import { TipPerecetageForm } from "./components/TipPerecetageForm";
 
 
 
@@ -36,6 +38,14 @@ function App() {
           <OredeContents
             order={order}
             removeItem={removeItem}
+          />
+
+          <TipPerecetageForm 
+          
+          />
+
+          <OrderTotals
+            order={order}
           />
         </div>
 
