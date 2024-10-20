@@ -10,7 +10,7 @@ import { TipPerecetageForm } from "./components/TipPerecetageForm";
 
 function App() {
 
-  const { order, addItem, removeItem, tip, setTip } = useOrder()
+  const { order, addItem, removeItem, tip, setTip, placeOrder } = useOrder()
 
   return (
     <>
@@ -34,21 +34,30 @@ function App() {
         </div>
 
         <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10 ">
-          <h2 >Consumo</h2>
-          <OredeContents
-            order={order}
-            removeItem={removeItem}
-          />
+          {order.length > 0 ? (
+            <>
+              <h2 >Consumo</h2>
+              <OredeContents
+                order={order}
+                removeItem={removeItem}
+              />
 
-          <TipPerecetageForm
-            setTip={setTip}
-            tip={tip}
-          />
+              <TipPerecetageForm
+                setTip={setTip}
+                tip={tip}
+              />
 
-          <OrderTotals
-            order={order}
-            tip={tip}
-          />
+              <OrderTotals
+                order={order}
+                tip={tip}
+                placeOrder={placeOrder}
+              />
+            </>
+
+          ) : (
+            <p className="text-center">La orden esta vacia</p>
+          )}
+
         </div>
 
       </main>
